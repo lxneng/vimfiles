@@ -22,3 +22,6 @@
 [submodule "bundle/rails"]
 	path = bundle/rails
 	url = git://github.com/tpope/vim-rails.git
+[submodule "bundle/Pydiction"]
+	path = bundle/Pydiction
+	url = git://github.com/vim-scripts/Pydiction.git
