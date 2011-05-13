@@ -39,8 +39,7 @@ keystrokes
 
 -  `Pydiction`_ Tab-complete your Python code
 
--  `git-vim`_ Plugin files for calling git functions from inside Vim,
-    Syntax files for git displays
+-  `git-vim`_ Plugin files for calling git functions from inside Vim, Syntax files for git displays
 
 -  `RST-Tables`_ Allows to create and edit restructuredText tables
     easily
