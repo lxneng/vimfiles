@@ -12,10 +12,10 @@ Make sure vim finds the vimrc file by either symlinking it:
 
 or by sourcing it from your own ~/.vimrc: ``source ~/.vim/vimrc``
 
-PyFlakes:
+`PyFlakes`_:
 ``cd ~/.vim/bundle/pyflakes && git submodule init && git submodule update``
 
-CommandT: ``cd ~/.vim/bundle/Command-T && rake make``
+`CommandT`_: ``cd ~/.vim/bundle/Command-T && rake make``
 
 
 Bundled Plugins
