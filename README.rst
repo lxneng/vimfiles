@@ -28,9 +28,7 @@ Bundled Plugins
 
 -  `markdown`_ Vim Markdown runtime files
 
--  `Command-T`_ The Command-T plug-in for VIM provides an extremely
-fast, intuitive mechanism for opening files with a minimal number of
-keystrokes
+-  `Command-T`_ The Command-T plug-in for VIM provides an extremely fast, intuitive mechanism for opening files with a minimal number of keystrokes
 
 -  `zencoding`_ vim plugins for HTML and CSS hi-speed coding
 
