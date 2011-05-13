@@ -40,3 +40,4 @@ Bundled Plugins
 * [Pydiction](https://github.com/vim-scripts/Pydiction) Tab-complete your Python code 
 
 * [git-vim](https://github.com/motemen/git-vim) Plugin files for calling git functions from inside Vim, Syntax files for git displays
+* [RST-Tables](https://github.com/vim-scripts/RST-Tables) Allows to create and edit restructuredText tables easily 
