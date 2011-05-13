@@ -20,8 +20,7 @@ CommandT: ``cd ~/.vim/bundle/Command-T && rake make``
 Bundled Plugins
 ===============
 
--  `SnipMate`_ snipMate.vim aims to be a concise vim script that
-implements some of TextMate’s snippets features in Vim.
+-  `SnipMate`_ snipMate.vim aims to be a concise vim script that implements some of TextMate’s snippets features in Vim.
 
 -  `NERD\_tree`_ A tree explorer plugin for navigating the filesystem
 
