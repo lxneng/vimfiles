@@ -25,3 +25,6 @@
 [submodule "bundle/git-vim"]
 	path = bundle/git-vim
 	url = git://github.com/motemen/git-vim.git
+[submodule "bundle/RST-Tables"]
+	path = bundle/RST-Tables
+	url = git://github.com/vim-scripts/RST-Tables.git
