@@ -41,8 +41,7 @@ keystrokes
 
 -  `git-vim`_ Plugin files for calling git functions from inside Vim, Syntax files for git displays
 
--  `RST-Tables`_ Allows to create and edit restructuredText tables
-    easily
+-  `RST-Tables`_ Allows to create and edit restructuredText tables easily
 
 .. _SnipMate: https://github.com/msanders/snipmate.vim
 .. _NERD\_tree: https://github.com/scrooloose/nerdtree
