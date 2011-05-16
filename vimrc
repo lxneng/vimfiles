@@ -45,7 +45,9 @@ filetype plugin on
 filetype indent on
 
 nmap <right> :bn<cr>	"next buffer
-nmap <left> :bp<cr>		"previous
+nmap <left> :bp<cr>	"previous
+
+nmap ct :CommandT<cr>   "CommandT
 
 "load pathogen managed plugins
 call pathogen#runtime_append_all_bundles()

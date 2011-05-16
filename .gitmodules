@@ -28,3 +28,6 @@
 [submodule "bundle/RST-Tables"]
 	path = bundle/RST-Tables
 	url = git://github.com/vim-scripts/RST-Tables.git
+[submodule "bundle/pep8"]
+	path = bundle/pep8
+	url = git://github.com/vim-scripts/pep8.git
