@@ -47,7 +47,7 @@ filetype indent on
 nmap <right> :bn<cr>	"next buffer
 nmap <left> :bp<cr>	"previous
 
-nmap ct :CommandT<cr>   "CommandT
+nmap ct :CommandT<cr>
 
 nnoremap <F6> :GundoToggle<CR>
 "load pathogen managed plugins
@@ -55,3 +55,4 @@ call pathogen#runtime_append_all_bundles()
 
 "conf pydiction_location
 let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict' 
+
