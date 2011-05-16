@@ -48,7 +48,7 @@ Bundled Plugins
 
 - `Gundo.vim <https://github.com/sjl/gundo.vim>`_ is Vim plugin to visualize your Vim undo tree. 
   
-.. _SnipMate: https://github.com/msanders/snipmate.vim
+.. _SnipMate: https://github.com/lxneng/snipmate.vim 
 .. _NERD\_tree: https://github.com/scrooloose/nerdtree
 .. _pyflakes: https://github.com/kevinw/pyflakes-vim
 .. _markdown: https://github.com/tpope/vim-markdown
