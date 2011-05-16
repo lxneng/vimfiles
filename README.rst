@@ -16,7 +16,7 @@ PyFlakes_: ``cd ~/.vim/bundle/pyflakes && git submodule init && git submodule up
 
 Command-T_: ``cd ~/.vim/bundle/Command-T && rake make``
 
-pep8_: ``sudo easy_install pep8``
+`pep8 <http://pypi.python.org/pypi/pep8>`_: ``sudo easy_install pep8``
 
 
 Bundled Plugins
