@@ -1,6 +1,3 @@
-[submodule "bundle/snipmate"]
-	path = bundle/snipmate
-	url = git://github.com/msanders/snipmate.vim.git
 [submodule "bundle/NERD_tree"]
 	path = bundle/NERD_tree
 	url = git://github.com/scrooloose/nerdtree.git
