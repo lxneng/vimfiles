@@ -17,7 +17,7 @@ or by sourcing it from your own ~/.vimrc: ``source ~/.vim/vimrc``
 
 `CommandT`_: ``cd ~/.vim/bundle/Command-T && rake make``
 
-`PEP8`_: ``sudo easy_install pep8``
+`pep8`_: ``sudo easy_install pep8``
 
 Bundled Plugins
 ===============
@@ -42,7 +42,7 @@ Bundled Plugins
 
 -  `RST-Tables`_ Allows to create and edit restructuredText tables easily
 
--  `PEP8`_ Check your python source files with `PEP8 <http://www.python.org/dev/peps/pep-0008/>`_
+-  `pep8`_ Check your python source files with `PEP8 <http://www.python.org/dev/peps/pep-0008/>`_
 
 .. _SnipMate: https://github.com/msanders/snipmate.vim
 .. _NERD\_tree: https://github.com/scrooloose/nerdtree
@@ -54,4 +54,4 @@ Bundled Plugins
 .. _Pydiction: https://github.com/vim-scripts/Pydiction
 .. _git-vim: https://github.com/motemen/git-vim
 .. _RST-Tables: https://github.com/vim-scripts/RST-Tables
-.. _PEP8: https://github.com/vim-scripts/pep8
+.. _pep8: https://github.com/vim-scripts/pep8
