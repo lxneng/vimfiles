@@ -49,6 +49,7 @@ nmap <left> :bp<cr>	"previous
 
 nmap ct :CommandT<cr>   "CommandT
 
+nnoremap <F6> :GundoToggle<CR>
 "load pathogen managed plugins
 call pathogen#runtime_append_all_bundles()
 
