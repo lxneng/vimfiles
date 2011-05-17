@@ -46,8 +46,6 @@ Bundled Plugins
 
 - `supertab <https://github.com/ervandew/supertab>`_ Perform all your vim insert mode completions with Tab
 
-- `Gundo.vim <https://github.com/sjl/gundo.vim>`_ is Vim plugin to visualize your Vim undo tree. 
-  
 .. _SnipMate: https://github.com/lxneng/snipmate.vim 
 .. _NERD\_tree: https://github.com/scrooloose/nerdtree
 .. _pyflakes: https://github.com/kevinw/pyflakes-vim
