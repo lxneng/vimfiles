@@ -28,9 +28,6 @@
 [submodule "bundle/pep8"]
 	path = bundle/pep8
 	url = git://github.com/vim-scripts/pep8.git
-[submodule "bundle/gundo"]
-	path = bundle/gundo
-	url = http://github.com/sjl/gundo.vim.git
 [submodule "bundle/supertab"]
 	path = bundle/supertab
 	url = git://github.com/ervandew/supertab.git
