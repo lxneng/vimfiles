@@ -33,4 +33,4 @@
 	url = git://github.com/ervandew/supertab.git
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
-	url = git@github.com:lxneng/snipmate.vim.git
+	url = git://github.com/msanders/snipmate.vim.git 

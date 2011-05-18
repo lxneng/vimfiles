@@ -46,7 +46,7 @@ Bundled Plugins
 
 - `supertab <https://github.com/ervandew/supertab>`_ Perform all your vim insert mode completions with Tab
 
-.. _SnipMate: https://github.com/lxneng/snipmate.vim 
+.. _SnipMate: https://github.com/msanders/snipmate.vim 
 .. _NERD\_tree: https://github.com/scrooloose/nerdtree
 .. _pyflakes: https://github.com/kevinw/pyflakes-vim
 .. _markdown: https://github.com/tpope/vim-markdown
