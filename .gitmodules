@@ -33,4 +33,7 @@
 	url = git://github.com/ervandew/supertab.git
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
-	url = git://github.com/msanders/snipmate.vim.git 
+	url = git://github.com/lxneng/snipmate.vim.git 
+[submodule "bundle/vim-css-color"]
+	path = bundle/vim-css-color
+	url = git://github.com/skammer/vim-css-color.git

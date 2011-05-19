@@ -54,4 +54,5 @@ call pathogen#runtime_append_all_bundles()
 
 "conf pydiction_location
 let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict' 
-
+"conf css-color-vim
+let g:cssColorVimDoNotMessMyUpdatetime = 1
