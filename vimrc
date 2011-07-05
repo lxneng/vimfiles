@@ -56,3 +56,9 @@ call pathogen#runtime_append_all_bundles()
 let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict' 
 "conf css-color-vim
 let g:cssColorVimDoNotMessMyUpdatetime = 1
+
+"hide .pyc, .html.py in nerdtree
+let NERDTreeIgnore = ['\.pyc$', '\.html.py$']
+
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
