@@ -60,7 +60,7 @@ let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
 let g:cssColorVimDoNotMessMyUpdatetime = 1
 
 "hide .pyc, .html.py in nerdtree
-let NERDTreeIgnore = ['\.pyc$', '\.html.py$']
+let NERDTreeIgnore = ['\.pyc$', '\.html.py$', '\.egg-info$']
 
 "set NERDTree opens up automatically and move the cursor into the main
 " autocmd VimEnter * NERDTree
