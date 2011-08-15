@@ -48,6 +48,8 @@ Bundled Plugins
 
 - `css-color-vim <https://github.com/skammer/vim-css-color>`_ Highlight colors in css files 
 
+- `vim-easymotion <https://github.com/Lokaltog/vim-easymotion>`_ Vim motions on speed! 
+
 
 .. _SnipMate: https://github.com/lxneng/snipmate.vim 
 .. _NERD\_tree: https://github.com/scrooloose/nerdtree
