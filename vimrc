@@ -3,10 +3,10 @@ au filetype python set expandtab "set for python file, converting tabs to spaces
 colorscheme vividchalk "set color scheme
 set history=1000 "store lots of :cmdline history
 set background=dark "set background color
-
 syntax on "set syntax hightlighting
 
 "indent settings
+set textwidth=79
 set shiftwidth=4
 set softtabstop=4
 set expandtab
