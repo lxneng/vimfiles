@@ -6,6 +6,7 @@ set background=dark "set background color
 syntax on "set syntax hightlighting
 
 set guifont=Monaco:h16 "set macvim font-size
+set lines=50 columns=128 "set fullscreen display
 
 "indent settings
 set textwidth=79
