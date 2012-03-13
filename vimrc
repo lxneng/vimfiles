@@ -5,6 +5,8 @@ set history=1000 "store lots of :cmdline history
 set background=dark "set background color
 syntax on "set syntax hightlighting
 
+set guifont=Monaco:h16 "set macvim font-size
+
 "indent settings
 set textwidth=79
 set shiftwidth=4
@@ -46,17 +48,15 @@ filetype off
 filetype plugin on
 filetype indent on
 
+"load pathogen managed plugins
+call pathogen#runtime_append_all_bundles()
+
 nmap <right> :bn<cr>	"next buffer
 nmap <left> :bp<cr>	"previous
 
 nmap ct :CommandT<cr>
 
-"load pathogen managed plugins
-call pathogen#runtime_append_all_bundles()
-
-"conf pydiction_location
-let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict' 
-"conf css-color-vim
+" conf css-color-vim
 let g:cssColorVimDoNotMessMyUpdatetime = 1
 
 "hide .pyc, .html.py in nerdtree
@@ -65,3 +65,10 @@ let NERDTreeIgnore = ['\.pyc$', '\.html.py$', '\.egg-info$']
 "set NERDTree opens up automatically and move the cursor into the main
 " autocmd VimEnter * NERDTree
 " autocmd VimEnter * wincmd p
+
+" closetag
+autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
+autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
+
+" supertab
+let g:SuperTabDefaultCompletionType = "context"
