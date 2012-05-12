@@ -5,8 +5,8 @@ set history=1000 "store lots of :cmdline history
 set background=dark "set background color
 syntax on "set syntax hightlighting
 
-set guifont=Monaco:h16 "set macvim font-size
-set lines=50 columns=128 "set fullscreen display
+set guifont=Monaco:h14 "set macvim font-size
+" set lines=18 columns=128 "set fullscreen display
 
 "indent settings
 set textwidth=79
@@ -73,3 +73,9 @@ autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bu
 
 " supertab
 let g:SuperTabDefaultCompletionType = "context"
+
+" syntastic
+let g:syntastic_python_checker = 'pyflakes'
+
+" scss-syntax
+au BufRead,BufNewFile *.scss set filetype=scss
