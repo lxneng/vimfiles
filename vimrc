@@ -1,31 +1,44 @@
-set nocompatible "set no vi compatible
-au filetype python set expandtab "set for python file, converting tabs to spaces 
-colorscheme vividchalk "set color scheme
-set history=1000 "store lots of :cmdline history
-set background=dark "set background color
-syntax on "set syntax hightlighting
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => General
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"set no vi compatible
+set nocompatible
 
-set guifont=Monaco:h14 "set macvim font-size
-" set lines=18 columns=128 "set fullscreen display
+" Sets how many lines of history VIM has to remember
+set history=1000
 
-"indent settings
-set textwidth=79
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-set autoindent
+" Load ftplugins and indent files
+filetype plugin indent on
 
-"folding settings
-set foldmethod=indent   "fold based on indent
-set foldnestmax=3       "deepest fold is 3 levels
-set nofoldenable        "dont fold by default
+" Set to auto read when a file is changed from the outside
+set autoread
+
+" With a map leader it's possible to do extra key combinations
+" like <leader>w saves the current file
+let mapleader = ","
+let g:mapleader = ","
+
+" Fast saving
+nmap <leader>w :w!<cr>
+
+" Fast editing of the .vimrc
+map <leader>e :e! ~/.vim/vimrc<cr>
+
+" When vimrc is edited, reload it
+autocmd! bufwritepost vimrc source ~/.vim/vimrc
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => VIM user interface
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set so=7 " Set 7 lines to the curors - when moving vertical..
 
 set wildmode=list:longest   "make cmdline tab completion similar to bash
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 
-set vb t_vb=	"disable visual bell
-set ruler
+set vb t_vb= "disable visual bell
+
+set ruler "Always show current position
 
 set number      "add line numbers
 set showbreak=...
@@ -34,48 +47,156 @@ set wrap linebreak nolist
 set showcmd     "show incomplete cmds down the bottom
 set showmode    "show current mode down the bottom
 
-set incsearch   "find the next match as we type the search
-set hlsearch    "hilight searches by default
+set hid "Change buffer - without saving
 
-set nobackup	"disable generate temp file
-set noswapfile  "disable generate temp file
+" Set backspace config
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+
+set ignorecase "Ignore case when searching
+set smartcase
+
+set hlsearch "Highlight search things
+
+set incsearch "Make search act like search in modern browsers
+set nolazyredraw "Don't redraw while executing macros 
+
+set magic "Set magic on, for regular expressions
+
+set showmatch "Show matching bracets when text indicator is over them
+set mat=2 "How many tenths of a second to blink
+
+" No sound on errors
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
 set helplang=cn	"set help language to chinese
-set encoding=utf-8	"set encoding to UTF-8
 
-"necessary on some Linux distros for pathogen to properly load bundles
-filetype off
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Colors and Fonts
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+syntax enable "Enable syntax hl
 
-"load ftplugins and indent files
-filetype plugin on
-filetype indent on
+if has("gui_running")
+  set guioptions-=T
+  set t_Co=256
+  set background=dark
+  colorscheme vividchalk
+  set nonu
+else
+  colorscheme vividchalk
+  set background=dark
+  set nonu
+endif
 
-"load pathogen managed plugins
+set encoding=utf8
+try
+    lang en_US
+catch
+endtry
+
+set ffs=unix,dos,mac "Default file types
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Files, backups and undo
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Turn backup off, since most stuff is in SVN, git anyway...
+set nobackup
+set nowb
+set noswapfile
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Text, tab, fold and indent related
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set textwidth=79
+set expandtab
+set shiftwidth=4
+set tabstop=4
+set smarttab
+
+set lbr
+set tw=500
+
+set ai "Auto indent
+set si "Smart indet
+set wrap "Wrap lines
+
+"folding settings
+set foldmethod=indent   "fold based on indent
+set foldnestmax=3       "deepest fold is 3 levels
+set nofoldenable        "dont fold by default
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Moving around, tabs and buffers
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Map space to / (search) and c-space to ? (backgwards search)
+map <space> /
+map <c-space> ?
+map <silent> <leader><cr> :noh<cr>
+
+" Close all the buffers
+map <leader>ba :1,300 bd!<cr>
+
+" Use the arrows to something usefull
+map <right> :bn<cr>
+map <left> :bp<cr>
+
+" Tab configuration
+map <leader>tn :tabnew<cr>
+map <leader>te :tabedit
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove
+
+" When pressing <leader>cd switch to the directory of the open buffer
+map <leader>cd :cd %:p:h<cr>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Python section
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let python_highlight_all = 1
+au FileType python syn keyword pythonDecorator True None False self
+au filetype python set expandtab "set for python file, converting tabs to spaces
+
+au BufNewFile,BufRead *.jinja set syntax=htmljinja
+au BufNewFile,BufRead *.mako set ft=mako
+
+" Map to insert python debugger
+map <C-d> <Esc>o# DEBUGGER!<CR>import pdb; pdb.set_trace()<Esc>
+
+" Map to close the python error screen
+map <C-q> <Esc><C>wj:clos<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Misc
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Load pathogen managed plugins
 call pathogen#runtime_append_all_bundles()
 
-nmap <right> :bn<cr>	"next buffer
-nmap <left> :bp<cr>	"previous
-
+" Command-T
+let g:CommandTMaxHeight = 15
+set wildignore+=*.o,*.obj,.git,*.pyc
 nmap ct :CommandT<cr>
 
-" conf css-color-vim
+" CSS-Color-Vim
 let g:cssColorVimDoNotMessMyUpdatetime = 1
 
-"hide .pyc, .html.py in nerdtree
+" Hide .pyc, .html.py in nerdtree
 let NERDTreeIgnore = ['\.pyc$', '\.html.py$', '\.egg-info$']
 
-"set NERDTree opens up automatically and move the cursor into the main
-" autocmd VimEnter * NERDTree
-" autocmd VimEnter * wincmd p
-
-" closetag
+" Closetag
 autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
 autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
 
-" supertab
+" Supertab
 let g:SuperTabDefaultCompletionType = "context"
 
-" syntastic
+" Syntastic
 let g:syntastic_python_checker = 'pyflakes'
 
-" scss-syntax
+" SCSS-Syntax
 au BufRead,BufNewFile *.scss set filetype=scss
+
+" vim-powerline
+let g:Powerline_symbols = 'fancy'
