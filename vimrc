@@ -79,17 +79,10 @@ set helplang=cn	"set help language to chinese
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax enable "Enable syntax hl
 
-if has("gui_running")
-  set guioptions-=T
-  set t_Co=256
-  set background=dark
-  colorscheme vividchalk
-  set nonu
-else
-  colorscheme vividchalk
-  set background=dark
-  set nonu
-endif
+set t_Co=256
+set background=dark
+colorscheme vividchalk
+set nonu
 
 set encoding=utf8
 try
