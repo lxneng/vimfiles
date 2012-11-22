@@ -31,27 +31,17 @@ Bundled Plugins
 
 -  rails_ rails.vim: Ruby on Rails power tools
 
--  Pydiction_ Tab-complete your Python code
-
--  git-vim_ Plugin files for calling git functions from inside Vim, Syntax files for git displays
-
 -  RST-Tables_ Allows to create and edit restructuredText tables easily
 
 - `supertab <https://github.com/ervandew/supertab>`_ Perform all your vim insert mode completions with Tab
 
 - `css-color-vim <https://github.com/skammer/vim-css-color>`_ Highlight colors in css files 
 
-- `vim-easymotion <https://github.com/Lokaltog/vim-easymotion>`_ Vim motions on speed! 
-
 
 .. _SnipMate: https://github.com/lxneng/snipmate.vim 
 .. _NERD\_tree: https://github.com/scrooloose/nerdtree
-.. _pyflakes: https://github.com/kevinw/pyflakes-vim
 .. _markdown: https://github.com/tpope/vim-markdown
 .. _Command-T: https://github.com/wincent/Command-T
 .. _zencoding: https://github.com/mattn/zencoding-vim
 .. _rails: https://github.com/tpope/vim-rails
-.. _Pydiction: https://github.com/vim-scripts/Pydiction
-.. _git-vim: https://github.com/motemen/git-vim
 .. _RST-Tables: https://github.com/vim-scripts/RST-Tables
-.. _pep8: https://github.com/vim-scripts/pep8
