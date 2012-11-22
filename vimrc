@@ -74,6 +74,8 @@ set tm=500
 
 set helplang=cn	"set help language to chinese
 
+set cursorline "highlight current line
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -162,6 +164,13 @@ map <C-d> <Esc>o# DEBUGGER!<CR>import pdb; pdb.set_trace()<Esc>
 map <C-q> <Esc><C>wj:clos<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => NerdTree
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Hide .pyc, .html.py in nerdtree
+let NERDTreeIgnore = ['\.pyc$', '\.html.py$', '\.egg-info$']
+map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Load pathogen managed plugins
@@ -174,9 +183,6 @@ nmap ct :CommandT<cr>
 
 " CSS-Color-Vim
 let g:cssColorVimDoNotMessMyUpdatetime = 1
-
-" Hide .pyc, .html.py in nerdtree
-let NERDTreeIgnore = ['\.pyc$', '\.html.py$', '\.egg-info$']
 
 " Closetag
 autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
