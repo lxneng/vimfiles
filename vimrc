@@ -271,6 +271,12 @@ NeoBundle 'mattn/webapi-vim'
 
 " }}}
 
+" NerdTree {{{
+
+NeoBundle 'scrooloose/nerdtree'
+
+" }}}
+
 " END BUNDLES }}}
 
 " Auto install the plugins {{{
@@ -323,6 +329,13 @@ set autoread                    " update a open file edited outside of Vim
 set ttimeoutlen=0               " toggle between modes almost instantly
 set backspace=indent,eol,start  " defines the backspace key behavior
 set virtualedit=all             " to edit where there is no actual character
+
+set so=7                        " Set 7 lines to the curors - when moving vertical..
+set showbreak=...
+set wrap linebreak nolist
+set helplang=cn                 " set help language to chinese
+set number
+set ffs=unix,dos,mac            " Default file types"
 
 " }}}
 
@@ -1612,6 +1625,14 @@ let g:winresizer_keycode_finish = 27
 " zoomwintab {{{
 
 map <Leader>z :ZoomWinTabToggle<CR>
+
+" }}}
+
+" NerdTree {{{
+
+" Hide .pyc, .html.py in nerdtree
+let NERDTreeIgnore = ['\.pyc$', '\.html.py$', '\.egg-info$']
+map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
 
 " }}}
 
