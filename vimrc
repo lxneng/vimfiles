@@ -147,7 +147,7 @@ NeoBundleLazy 'vim-scripts/hexman.vim', { 'autoload' :
 " Python {{{
 
 " Autocompletion
-NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Valloric/YouCompleteMe', {'build': {'unix': './install.sh --clang-completer'}}
 " A Python plugin
 NeoBundleLazy 'klen/python-mode', {'autoload': {'filetypes': ['python']}}
 " Admin virtualenvs
@@ -846,18 +846,8 @@ let g:indentLine_color_term = 239
 
 " }}}
 
-" Neocomplete {{{
+" Enable omni completion {{{
 
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#enable_auto_select = 1
-let g:neocomplete#enable_refresh_always = 1
-let g:neocomplete#max_list = 30
-let g:neocomplete#min_keyword_length = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 1
-let g:neocomplete#data_directory = $HOME.'/.vim/tmp/neocomplete'
-
-" Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
@@ -916,6 +906,7 @@ let g:syntastic_style_warning_symbol  = '⚡'
 " files
 nnoremap <silent><Leader>o :Unite -silent -start-insert file<CR>
 nnoremap <silent><Leader>O :Unite -silent -start-insert file_rec/async<CR>
+nnoremap <silent>ct :Unite -silent -start-insert file_rec/async<CR>
 nnoremap <silent><Leader>m :Unite -silent file_mru<CR>
 " buffers
 nnoremap <silent><Leader>b :Unite -silent buffer<CR>
