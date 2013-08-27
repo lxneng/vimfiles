@@ -465,7 +465,7 @@ endif
 
 " Font {{{
 
-set guifont=Dejavu\ Sans\ Mono\ for\ Powerline\ 11
+set guifont=DejaVu\ Sans\ Mono\ Bold\ for\ Powerline\ 12
 
 " }}}
 
@@ -877,10 +877,6 @@ call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
 " PythonMode {{{ -------------------------------------------------------------
 
 let g:pymode_breakpoint_key = '<Leader>B'
-
-let g:pymode_lint_checker = 'pylint,pep8,mccabe,pep257'
-let g:pymode_lint_ignore = ''
-let g:pymode_lint_config = $HOME.'/dotfiles/pylint/pylint.rc'
 
 let g:pymode_rope = 1
 let g:pymode_rope_goto_def_newwin = 'new'
