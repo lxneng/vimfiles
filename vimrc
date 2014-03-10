@@ -147,7 +147,7 @@ NeoBundleLazy 'vim-scripts/hexman.vim', { 'autoload' :
 " Python {{{
 
 " Autocompletion
-NeoBundle 'Valloric/YouCompleteMe', {'build': {'unix': './install.sh --clang-completer'}}
+" NeoBundle 'Valloric/YouCompleteMe', {'build': {'unix': './install.sh --clang-completer'}}
 " A Python plugin
 NeoBundleLazy 'klen/python-mode', {'autoload': {'filetypes': ['python']}}
 " Admin virtualenvs
@@ -173,6 +173,7 @@ NeoBundleLazy 'vim-scripts/po.vim--gray', {'autoload': {'filetypes': ['po']}}
 NeoBundleLazy 'joedicastro/vim-pentadactyl', {
             \ 'autoload': {'filetypes': ['pentadactyl']}}
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'jnwhiteh/vim-golang'
 
 " }}}
 
@@ -336,6 +337,8 @@ set wrap linebreak nolist
 set helplang=cn                 " set help language to chinese
 set number
 set ffs=unix,dos,mac            " Default file types"
+
+autocmd Filetype gitcommit setlocal spell textwidth=72
 
 " }}}
 
@@ -1620,6 +1623,12 @@ map <Leader>z :ZoomWinTabToggle<CR>
 " Hide .pyc, .html.py in nerdtree
 let NERDTreeIgnore = ['\.pyc$', '\.html.py$', '\.egg-info$']
 map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+
+" }}}
+
+" UltiSnips {{{
+
+let g:UltiSnipsExpandTrigger="<c-l>"
 
 " }}}
 
