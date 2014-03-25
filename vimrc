@@ -1621,7 +1621,7 @@ map <Leader>z :ZoomWinTabToggle<CR>
 " NerdTree {{{
 
 " Hide .pyc, .html.py in nerdtree
-let NERDTreeIgnore = ['\.pyc$', '\.html.py$', '\.egg-info$']
+let NERDTreeIgnore = ['\.pyc$', '\.html.py$', '\.egg-info$', '__pycache__']
 map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
 
 " }}}
