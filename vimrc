@@ -278,6 +278,13 @@ NeoBundle 'scrooloose/nerdtree'
 
 " }}}
 
+" Dash.vim {{{
+
+NeoBundle 'rizzatti/dash.vim'
+NeoBundle 'rizzatti/funcoo.vim'
+
+" }}}
+
 " END BUNDLES }}}
 
 " Auto install the plugins {{{
