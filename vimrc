@@ -915,7 +915,7 @@ nnoremap <silent><Leader>O :Unite -silent -start-insert file_rec/async<CR>
 nnoremap <silent>ct :Unite -silent -start-insert file_rec/async<CR>
 nnoremap <silent><Leader>m :Unite -silent file_mru<CR>
 " buffers
-nnoremap <silent><Leader>b :Unite -silent buffer<CR>
+nnoremap <silent><Leader>, :Unite -silent buffer<CR>
 " tabs
 nnoremap <silent><Leader>B :Unite -silent tab<CR>
 " buffer search
