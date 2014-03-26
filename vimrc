@@ -1508,7 +1508,7 @@ nnoremap <silent>[menu]v :Unite menu:vim -silent -start-insert<CR>
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 call unite#custom#source('file_mru,file_rec,file_rec/async,grep,locate',
-            \ 'ignore_pattern', join(['\.git/', 'tmp/', 'bundle/'], '\|'))
+            \ 'ignore_pattern', join(['\.git/', 'tmp/', 'bundle/', '__pycache__/', '\.ropeproject/'], '\|'))
 
 let g:unite_source_history_yank_enable = 1
 let g:unite_enable_start_insert = 0
