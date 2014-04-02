@@ -64,8 +64,6 @@ NeoBundle 'Shougo/unite.vim'
 
 " Unite sources
 NeoBundleLazy 'Shougo/unite-outline', {'autoload':{'unite_sources':'outline'}}
-NeoBundleLazy 'Shougo/unite-session', {'autoload':{'unite_sources':'session',
-            \ 'commands' : ['UniteSessionSave', 'UniteSessionLoad']}}
 NeoBundleLazy 'tsukkee/unite-help', {'autoload':{'unite_sources':'help'}}
 NeoBundleLazy 'ujihisa/unite-colorscheme', {'autoload':{'unite_sources':
             \ 'colorscheme'}}
@@ -78,6 +76,8 @@ NeoBundleLazy 'osyo-manga/unite-quickfix', {'autoload':{'unite_sources':
             \ ['quickfix', 'location_list']}}
 NeoBundleLazy 'osyo-manga/unite-fold', {'autoload':{'unite_sources':'fold'}}
 NeoBundleLazy 'tacroe/unite-mark', {'autoload':{'unite_sources':'mark'}}
+NeoBundleLazy 'Shougo/neomru.vim', {'autoload':{'unite_sources':
+            \['file_mru', 'directory_mru']}}
 
 " File explorer (needed where ranger is not available)
 NeoBundleLazy 'Shougo/vimfiler', {'autoload' : { 'commands' : ['VimFiler']}}
@@ -85,6 +85,9 @@ NeoBundleLazy 'Shougo/vimfiler', {'autoload' : { 'commands' : ['VimFiler']}}
 " Junk files
 NeoBundleLazy 'Shougo/junkfile.vim', {'autoload':{'commands':'JunkfileOpen',
             \ 'unite_sources':['junkfile','junkfile/new']}}
+
+" Unite plugin that provides command line completition
+NeoBundle 'majkinetor/unite-cmdmatch'
 
 " }}}
 
@@ -122,15 +125,19 @@ NeoBundle 'airblade/vim-gitgutter'
 " Git viewer
 NeoBundleLazy 'gregsexton/gitv', {'depends':['tpope/vim-fugitive'],
             \ 'autoload':{'commands':'Gitv'}}
+" Browse GitHub events in Vim
+NeoBundle 'joedicastro/vim-github-dashboard'
 
 " }}}
 
-" Markdown {{{
+" Markdown & reStructuredText {{{
 
 " Markdown Syntax
 NeoBundleLazy 'joedicastro/vim-markdown'
 " Makes a Markdown Extra preview into the browser
 NeoBundleLazy 'joedicastro/vim-markdown-extra-preview'
+" reStructuredText in vim. Your personal Wiki in RST
+NeoBundleLazy 'Rykka/riv.vim', {'autoload': {'filetypes': ['rst']}}
 
 " }}}
 
@@ -139,8 +146,7 @@ NeoBundleLazy 'joedicastro/vim-markdown-extra-preview'
 " A diff tool for directories
 NeoBundleLazy 'joedicastro/DirDiff.vim', { 'autoload': { 'commands' : 'DirDiff'}}
 " Hexadecimal editor
-NeoBundleLazy 'vim-scripts/hexman.vim', { 'autoload' :
-            \ { 'mappings' : [['ni', '<Plug>HexManager']]}}
+NeoBundle 'Shougo/vinarise.vim'
 
 " }}}
 
@@ -151,24 +157,27 @@ NeoBundleLazy 'vim-scripts/hexman.vim', { 'autoload' :
 " A Python plugin
 NeoBundleLazy 'klen/python-mode', {'autoload': {'filetypes': ['python']}}
 " Admin virtualenvs
-NeoBundleLazy 'jmcantrell/vim-virtualenv', {'autoload': {'filetypes': ['python']}}
+NeoBundle 'jmcantrell/vim-virtualenv'
 " Show indent lines
 NeoBundleLazy 'Yggdroot/indentLine', {'autoload': {'filetypes': ['python']}}
 " Show reports from coverage.py
 NeoBundleLazy 'alfredodeza/coveragepy.vim', {'autoload': {'filetypes': ['python']}}
-
+" Sort imports
+ NeoBundle 'fisadev/vim-isort', {'autoload': {'filetypes': ['python']}}
 " }}}
 
 " Code Snippets {{{
 
 " Powerful and advanced Snippets tool
 NeoBundle 'SirVer/ultisnips'
+" Snippets for Ultisnips
+NeoBundle 'honza/vim-snippets'
 
 " }}}
 
 " Syntax {{{
 
-NeoBundleLazy 'vim-scripts/JSON.vim', {'autoload': {'filetypes': ['json']}}
+NeoBundleLazy 'elzr/vim-json', {'filetypes' : 'json'}
 NeoBundleLazy 'vim-scripts/po.vim--gray', {'autoload': {'filetypes': ['po']}}
 NeoBundleLazy 'joedicastro/vim-pentadactyl', {
             \ 'autoload': {'filetypes': ['pentadactyl']}}
@@ -187,8 +196,7 @@ NeoBundle 'vim-scripts/utl.vim'
 " Text edition {{{
 
 " Autocompletion of (, [, {, ', ", ...
-NeoBundle 'kana/vim-smartinput'
-" NeoBundle 'delimitMate.vim'
+NeoBundle 'delimitMate.vim'
 " Smart and fast date changer
 NeoBundle 'tpope/vim-speeddating'
 " to surround vim objects with a pair of identical chars
@@ -218,10 +226,6 @@ NeoBundle 'kana/vim-textobj-lastpat' " a/, i/, a?, i?
 NeoBundle 'kana/vim-textobj-line' " al, il
 NeoBundle 'kana/vim-textobj-underscore' " a_, i_
 NeoBundle 'kana/vim-textobj-user'
-" multiple cursors
-NeoBundle 'terryma/vim-multiple-cursors'
-" translate text with google translator
-NeoBundle 'maksimr/vim-translator'
 
 " }}}
 
@@ -243,12 +247,20 @@ NeoBundleLazy 'othree/html5.vim', {'autoload':
 
 NeoBundleLazy 'mattn/emmet-vim', {'autoload':
             \ {'filetypes': ['html', 'xhttml', 'css', 'xml', 'xls', 'markdown']}}
+
+NeoBundle 'kchmck/vim-coffee-script',{'autoload' : {
+            \ 'commands' : [
+                             \ 'CoffeeCompile', 'CoffeeLint', 'CoffeeMake',
+                             \ 'CoffeeRun', 'CoffeeWatch'],
+            \ 'filetypes' : ['coffee']
+            \ }}
+
 " }}}
 
 " GUI {{{
 
 " A better looking status line
-NeoBundle 'joedicastro/vim-powerline'
+NeoBundle 'bling/vim-airline'
 " Zooms a window
 NeoBundleLazy 'vim-scripts/zoomwintab.vim', {'autoload' :
             \{'commands' : 'ZoomWinTabToggle'}}
@@ -282,6 +294,12 @@ NeoBundle 'scrooloose/nerdtree'
 
 NeoBundle 'rizzatti/dash.vim'
 NeoBundle 'rizzatti/funcoo.vim'
+
+" }}}
+
+" DBMS {{{
+
+NeoBundleLazy 'joedicastro/dbext.vim', { 'autoload' : { 'filetypes' : 'sql'}}
 
 " }}}
 
@@ -322,6 +340,8 @@ set encoding=utf-8              " setup the encoding to UTF-8
 set ls=2                        " status line always visible
 set go-=T                       " hide the toolbar
 set go-=m                       " hide the menu
+" The next two lines are quite tricky, but in Gvim, if you don't do this, if you
+" only hide all the scrollbars, the vertical scrollbar is showed anyway
 set go+=rRlLbh                  " show all the scrollbars
 set go-=rRlLbh                  " hide all the scrollbars
 set visualbell                  " turn on the visual bell
@@ -560,8 +580,7 @@ map <Leader>P :set invpaste<CR>
 
 " Autoload configuration when this file changes ($MYVIMRC) {{{
 
-" also reload the Powerline colorscheme to avoid artifacts
-autocmd! BufWritePost vimrc source % | call Pl#Load()
+autocmd! BufWritePost vimrc source %
 
 " }}}
 
@@ -745,6 +764,28 @@ nnoremap Y y$
 
 " PLUGINS Setup {{{ ===========================================================
 
+" Airline {{{
+
+set noshowmode
+
+let g:airline_theme='powerlineish'
+let g:airline_enable_branch=1
+let g:airline_powerline_fonts=1
+let g:airline_detect_whitespace = 1
+let g:airline#extensions#hunks#non_zero_only = 1
+
+" let g:airline#extensions#tabline#enabled = 2
+" let g:airline#extensions#tabline#fnamemod = ':t'
+" let g:airline#extensions#tabline#buffer_min_count = 1
+
+" }}}
+
+" CoffeeScript {{{
+
+map <Leader>rw :CoffeeWatch vert<CR>
+
+" }}}
+
 " ColorV {{{
 
 let g:colorv_cache_file=$HOME.'/.vim/tmp/vim_colorv_cache'
@@ -762,7 +803,72 @@ augroup plugin_commentary
     au FileType python setlocal commentstring=#%s
     au FileType htmldjango setlocal commentstring={#\ %s\ #}
     au FileType puppet setlocal commentstring=#\ %s
+    au FileType xquery setlocal commentstring=(:\ %s\ :)
 augroup END
+
+" }}}
+
+" DBext {{{
+
+let g:dbext_default_type = 'SQLITE'
+let g:dbext_default_user = ""
+let g:dbext_default_passwd = ""
+let g:dbext_default_display_cmd_line = 0
+let g:dbext_default_prompt_for_parameters=0
+let g:dbext_default_history_file = $HOME.'./vim/tmp/dbext_sql_history.txt'
+
+" Mappings
+
+let g:dbext_default_usermaps = 0
+let g:dbext_map_or_cmd = 'cmd'
+
+vnoremap <Leader>Se :DBExecVisualSQL<CR>
+vnoremap <leader>St :DBSelectFromTable<CR>
+vnoremap <Leader>Sdt :DBDescribeTable<CR>
+vnoremap <Leader>Sdp :DBDescribeProcedure<CR>
+vnoremap <Leader>Slt :DBListTable<CR>
+vnoremap <Leader>Slp :DBListProcedure<CR>
+vnoremap <Leader>Slv :DBListView<CR>
+vnoremap <Leader>Slc :DBListColumn<CR>
+
+nnoremap <Leader>Se :DBExecSQLUnderCursor<CR>
+nnoremap <Leader>SE :DBExecSQLTopX<CR>
+nnoremap <Leader>Sea :1,$DBExecRangeSQL<CR>
+nnoremap <Leader>Sel :.,.DBExecRangeSQL<CR>
+nnoremap <Leader>Sep :'<,'>DBExecRangeSQL<CR>
+nnoremap <Leader>St :DBSelectFromTable<CR>
+nnoremap <Leader>ST :DBSelectFromTableTopX<CR>
+nnoremap <Leader>Stw :DBSelectFromTableWithWhere<CR>
+nnoremap <Leader>Sta :DBSelectFromTableAskName<CR>
+nnoremap <Leader>Sd :DBDescribeTable<CR>
+nnoremap <Leader>Sda :DBDescribeTableAskName<CR>
+nnoremap <Leader>Sdp :DBDescribeProcedure<CR>
+nnoremap <Leader>Sdpa :DBDescribeProcedureAskName<CR>
+nnoremap <Leader>Slt :DBListTable<CR>
+nnoremap <Leader>Slp :DBListProcedure<CR>
+nnoremap <Leader>Slv :DBListView<CR>
+nnoremap <Leader>Slc :DBListColumn<CR>
+nnoremap <Leader>Svr :DBListVar<CR>
+nmap <silent> <Leader>Sal :.,.DBVarRangeAssign<CR>
+nmap <silent> <Leader>Saa :1,$DBVarRangeAssign<CR>
+nmap <silent> <Leader>Sap :'<,'>DBVarRangeAssign<CR>
+xmap <silent> <Leader>Sa :DBVarRangeAssign<CR>
+nnoremap <Leader>Sh :DBHistory<CR>
+nnoremap <Leader>So :DBOrientation<CR>
+nnoremap <Leader>Sbp <Plug>DBPromptForBufferParameters<CR>
+
+" SQLite
+let g:dbext_default_SQLITE_bin = 'sqlite3'
+" let g:dbext_default_SQLITE_cmd_header        = ".mode column\n.headers ON\n"
+" let g:dbext_default_SQLITE_cmd_terminator    = ';'
+" let g:dbext_default_SQLITE_cmd_terminator    = ';'
+" let g:dbext_default_SQLITE_extra             = ''
+
+" }}}
+
+" delimitmate {{{
+
+let delimitMate_expand_space = 1
 
 " }}}
 
@@ -794,6 +900,7 @@ nnoremap <Leader>gl :exe "silent Glog <Bar> Unite -no-quit
 nnoremap <Leader>gL :exe "silent Glog -- <Bar> Unite -no-quit
             \ quickfix"<CR>:redraw!<CR>
 nnoremap <Leader>gt :!tig<CR>:redraw!<CR>
+nnoremap <Leader>gS :exe "silent !shipit"<CR>:redraw!<CR>
 nnoremap <Leader>gg :exe 'silent Ggrep -i '.input("Pattern: ")<Bar>Unite
             \ quickfix -no-quit<CR>
 nnoremap <Leader>ggm :exe 'silent Glog --grep='.input("Pattern: ").' <Bar>
@@ -827,9 +934,30 @@ autocmd FileType git set nofoldenable
 
 " }}}
 
-" Google Translator {{{
+" GitHub dashboard {{{
 
-let g:goog_user_conf = {'langpair': 'es|en', 'v_key': 'T'}
+nnoremap <Leader>gD :exe 'GHD! '.input("Username: ")<CR>
+nnoremap <Leader>gA :exe 'GHA! '.input("Username or repository: ")<CR>
+
+function! GHDashboard (...)
+  if &filetype == 'github-dashboard'
+    " first variable is the statusline builder
+    let builder = a:1
+
+    call builder.add_section('airline_a', 'GitHub ')
+    call builder.add_section('airline_b',
+                \ ' %{get(split(get(split(github_dashboard#statusline(), " "),
+                \ 1, ""), ":"), 0, "")} ')
+    call builder.add_section('airline_c',
+                \ ' %{get(split(get(split(github_dashboard#statusline(), " "),
+                \ 2, ""), "]"), 0, "")} ')
+
+    " tell the core to use the contents of the builder
+    return 1
+  endif
+endfunction
+
+autocmd FileType github-dashboard call airline#add_statusline_func('GHDashboard')
 
 " }}}
 
@@ -838,12 +966,6 @@ let g:goog_user_conf = {'langpair': 'es|en', 'v_key': 'T'}
 nnoremap <Leader>u :GundoToggle<CR>
 
 let g:gundo_preview_bottom = 1
-
-" }}}
-
-" HexManager {{{
-
-map <F6> <Plug>HexManager<CR>
 
 " }}}
 
@@ -858,12 +980,61 @@ let g:indentLine_color_term = 239
 
 " Enable omni completion {{{
 
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#enable_refresh_always = 1
+let g:neocomplete#max_list = 30
+let g:neocomplete#min_keyword_length = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 1
+let g:neocomplete#data_directory = $HOME.'/.vim/tmp/neocomplete'
+
+" disable the auto select feature by default to speed up writing without
+" obstacles (is optimal for certain situations)
+
+let g:neocomplete#enable_auto_select = 0
+
+" toggle the auto select feature
+function! ToggleNeoComplete()
+  if !g:neocomplete#disable_auto_complete && g:neocomplete#enable_auto_select
+      let g:neocomplete#disable_auto_complete = 0
+      let g:neocomplete#enable_auto_select = 0
+  elseif !g:neocomplete#disable_auto_complete && !g:neocomplete#enable_auto_select
+      let g:neocomplete#disable_auto_complete = 1
+      let g:neocomplete#enable_auto_select = 0
+  elseif g:neocomplete#disable_auto_complete && !g:neocomplete#enable_auto_select
+      let g:neocomplete#disable_auto_complete = 0
+      let g:neocomplete#enable_auto_select = 1
+  endif
+endfunction
+nnoremap <silent><Leader>ea :call ToggleNeoComplete()<CR>
+
+" Enable omni completion.
+
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+if !exists('g:neocomplete#sources#omni#input_patterns')
+    let g:neocomplete#sources#omni#input_patterns = {}
+endif
+
+let g:neocomplete#sources#omni#input_patterns.python='[^. \t]\.\w*'
+
+" }}}
+
+" Neobundle {{{
+
+let g:neobundle#log_filename = $HOME.'/.vim/tmp/neobundle.log'
+
+" }}}
+
+" neomru {{{
+
+let g:neomru#file_mru_path = $HOME.'/.vim/tmp/neomru/file'
+let g:neomru#directory_mru_path = $HOME.'/.vim/tmp/neomru/directory'
 
 " }}}
 
@@ -873,32 +1044,32 @@ let g:po_translator = "joe di castro <joe@joedicastro.com>"
 
 " }}}
 
-" Powerline {{{ --------------------------------------------------------------
-
-let g:Powerline_symbols = 'fancy'
-let g:Powerline_cache_file = $HOME.'/.vim/tmp/Powerline.cache'
-
-set noshowmode
-
-call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
-
-" }}}
-
 " PythonMode {{{ -------------------------------------------------------------
 
-let g:pymode_breakpoint_key = '<Leader>B'
+nmap <silent><Leader>n :PymodeLint<CR>
 
+let g:pymode_breakpoint_bind = '<Leader>B'
+
+let g:pymode_lint = 1
+let g:pymode_lint_on_write = 0
+let g:pymode_lint_checkers = ['pylint', 'pep8', 'mccabe', 'pep257']
+let g:pymode_lint_ignore = ''
+let g:pymode_virtualenv = 0
 let g:pymode_rope = 1
-let g:pymode_rope_goto_def_newwin = 'new'
-let g:pymode_rope_guess_project = 0
-let g:pymode_rope_vim_completion = 1
-let g:pymode_rope_always_show_complete_menu = 1
+
+let g:pymode_rope_completion = 0
+let g:pymode_rope_complete_on_dot = 1
 
 " }}}
 
 " Syntastic {{{
 
+nmap <silent><Leader>N :SyntasticCheck<CR>:Errors<CR>
+
 let g:syntastic_python_pylint_exe = "pylint2"
+let g:syntastic_mode_map = { 'mode': 'active',
+            \ 'active_filetypes': [],
+            \ 'passive_filetypes': ['python'] }
 
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
@@ -1128,6 +1299,8 @@ let g:unite_source_menu_menus.text.command_candidates = [
         \'call ToggleRelativeAbsoluteNumber()'],
     \['▷ toggle wrapping                                            ⌘ ,ew',
         \'call ToggleWrap()'],
+    \['▷ toggle auto-completion state (manual → disabled → auto)    ⌘ ,ea',
+        \'call ToggleNeoCompleteAutoSelect()'],
     \['▷ show hidden chars                                          ⌘ ,eh',
         \'set list!'],
     \['▷ toggle fold                                                ⌘ /',
@@ -1182,10 +1355,12 @@ let g:unite_source_menu_menus.neobundle.command_candidates = [
         \'Unite output:NeoBundleDocs'],
     \['▷ neobundle clean',
         \'NeoBundleClean'],
+    \['▷ neobundle rollback',
+        \'exe "NeoBundleRollback" input("plugin: ")'],
     \['▷ neobundle list',
         \'Unite output:NeoBundleList'],
     \['▷ neobundle direct edit',
-        \'NeoBundleDirectEdit'],
+        \'NeoBundleExtraEdit'],
     \]
 nnoremap <silent>[menu]n :Unite -silent -start-insert menu:neobundle<CR>
 " }}}
@@ -1244,8 +1419,14 @@ let g:unite_source_menu_menus.git.command_candidates = [
         \'Glcd'],
     \['▷ git browse             (fugitive)                          ⌘ ,gB',
         \'Gbrowse'],
+    \['▷ github dashboard       (github-dashboard)                  ⌘ ,gD',
+        \'exe "GHD! " input("Username: ")'],
+    \['▷ github activity        (github-dashboard)                  ⌘ ,gA',
+        \'exe "GHA! " input("Username or repository: ")'],
+    \['▷ github issues & PR                                         ⌘ ,gS',
+        \'normal ,gS'],
     \]
-nnoremap <silent>[menu]g :Unite -silent -winheight=26 -start-insert menu:git<CR>
+nnoremap <silent>[menu]g :Unite -silent -winheight=29 -start-insert menu:git<CR>
 " }}}
 
 " code menu {{{
@@ -1255,13 +1436,13 @@ let g:unite_source_menu_menus.code = {
     \}
 let g:unite_source_menu_menus.code.command_candidates = [
     \['▷ run python code                            (pymode)        ⌘ ,r',
-        \'Pyrun'],
+        \'PymodeRun'],
     \['▷ show docs for the current word             (pymode)        ⌘ K',
         \'normal K'],
     \['▷ insert a breakpoint                        (pymode)        ⌘ ,B',
         \'normal ,B'],
-    \['▷ togle pylint revison                       (pymode)',
-        \'PyLintToggle'],
+    \['▷ pylint check                               (pymode)        ⌘ ,n',
+        \'PymodeLint'],
     \['▷ run with python2 in tmux panel             (vimux)         ⌘ ,rr',
         \'normal ,rr'],
     \['▷ run with python3 in tmux panel             (vimux)         ⌘ ,r3',
@@ -1280,42 +1461,34 @@ let g:unite_source_menu_menus.code.command_candidates = [
         \'VimuxInspectRunner'],
     \['▷ close tmux panel                           (vimux)         ⌘ ,rq',
         \'VimuxCloseRunner'],
-    \['▷ rope autocompletion                        (rope)          ⌘ C-[espacio]',
-        \'RopeCodeAssist'],
-    \['▷ go to definition                           (rope)          ⌘ C-C g',
-        \'RopeGotoDefinition'],
-    \['▷ reorganize imports                         (rope)          ⌘ C-C r o',
-        \'RopeOrganizeImports'],
-    \['▷ refactorize - rename                       (rope)          ⌘ C-C r r',
-        \'RopeRename'],
-    \['▷ refactorize - extract variable             (rope)          ⌘ C-C r l',
-        \'RopeExtractVariable'],
-    \['▷ refactorize - extract method               (rope)          ⌘ C-C r m',
-        \'RopeExtractMethod'],
-    \['▷ refactorize - inline                       (rope)          ⌘ C-C r i',
-        \'RopeInline'],
-    \['▷ refactorize - move                         (rope)          ⌘ C-C r v',
-        \'RopeMove'],
-    \['▷ refactorize - restructure                  (rope)          ⌘ C-C r x',
-        \'RopeRestructure'],
-    \['▷ refactorize - use function                 (rope)          ⌘ C-C r u',
-        \'RopeUseFunction'],
-    \['▷ refactorize - introduce factory            (rope)          ⌘ C-C r f',
-        \'RopeIntroduceFactory'],
-    \['▷ refactorize - change signature             (rope)          ⌘ C-C r s',
-        \'RopeChangeSignature'],
-    \['▷ refactorize - rename current module        (rope)          ⌘ C-C r 1 r',
-        \'RopeRenameCurrentModule'],
-    \['▷ refactorize - move current module          (rope)          ⌘ C-C r 1 m',
-        \'RopeMoveCurrentModule'],
-    \['▷ refactorize - module to package            (rope)          ⌘ C-C r 1 p',
-        \'RopeModuleToPackage'],
-    \['▷ show docs for current word                 (rope)          ⌘ C-C r a d',
-        \'RopeShowDoc'],
-    \['▷ syntastic check                            (syntastic)',
-        \'SyntasticCheck'],
-    \['▷ syntastic errors                           (syntastic)',
-        \'Errors'],
+    \['▷ sort imports                               (isort)',
+        \'Isort'],
+    \['▷ go to definition                           (pymode-rope)   ⌘ C-C g',
+        \'call pymode#rope#goto_definition()'],
+    \['▷ find where a function is used              (pymode-rope)   ⌘ C-C f',
+        \'call pymode#rope#find_it()'],
+    \['▷ show docs for current word                 (pymode-rope)   ⌘ C-C d',
+        \'call pymode#rope#show_doc()'],
+    \['▷ reorganize imports                         (pymode-rope)   ⌘ C-C r o',
+        \'call pymode#rope#organize_imports()'],
+    \['▷ refactorize - rename                       (pymode-rope)   ⌘ C-C r r',
+        \'call pymode#rope#rename()'],
+    \['▷ refactorize - inline                       (pymode-rope)   ⌘ C-C r i',
+        \'call pymode#rope#inline()'],
+    \['▷ refactorize - move                         (pymode-rope)   ⌘ C-C r v',
+        \'call pymode#rope#move()'],
+    \['▷ refactorize - use function                 (pymode-rope)   ⌘ C-C r u',
+        \'call pymode#rope#use_function()'],
+    \['▷ refactorize - change signature             (pymode-rope)   ⌘ C-C r s',
+        \'call pymode#rope#signature()'],
+    \['▷ refactorize - rename current module        (pymode-rope)   ⌘ C-C r 1 r',
+        \'PymodeRopeRenameModule'],
+    \['▷ refactorize - module to package            (pymode-rope)   ⌘ C-C r 1 p',
+        \'PymodeRopeModuleToPackage'],
+    \['▷ syntastic toggle                           (syntastic)',
+        \'SyntasticToggleMode'],
+    \['▷ syntastic check & errors                   (syntastic)     ⌘ ,N',
+        \'normal ,N'],
     \['▷ list virtualenvs                           (virtualenv)',
         \'Unite output:VirtualEnvList'],
     \['▷ activate virtualenv                        (virtualenv)',
@@ -1330,6 +1503,8 @@ let g:unite_source_menu_menus.code.command_candidates = [
         \'Coveragepy session'],
     \['▷ toggle coverage marks                      (coveragepy)',
         \'Coveragepy show'],
+    \['▷ coffeewatch                                (coffeescript)  ⌘ ,rw',
+        \'CoffeeWatch vert'],
     \['▷ count lines of code',
         \'Unite -default-action= output:call\\ LinesOfCode()'],
     \['▷ toggle indent lines                                        ⌘ ,L',
@@ -1352,20 +1527,18 @@ let g:unite_source_menu_menus.markdown.command_candidates = [
 nnoremap <silent>[menu]k :Unite -silent menu:markdown<CR>
 " }}}
 
-" sessions menu {{{
-let g:unite_source_menu_menus.sessions = {
-    \ 'description' : '       sessions
-        \                                              ⌘ [space]h',
+" reST menu {{{
+let g:unite_source_menu_menus.rest = {
+    \ 'description' : '           reStructuredText
+    \                                      ⌘ [space]r',
     \}
-let g:unite_source_menu_menus.sessions.command_candidates = [
-    \['▷ load session',
-        \'Unite session'],
-    \['▷ make session (default)',
-        \'UniteSessionSave'],
-    \['▷ make session (custom)',
-        \'exe "UniteSessionSave " input("name: ")'],
+let g:unite_source_menu_menus.rest.command_candidates = [
+    \['▷ CheatSheet',
+        \'RivCheatSheet'],
+    \['▷ reStructuredText Specification',
+        \'RivSpecification'],
     \]
-nnoremap <silent>[menu]h :Unite -silent menu:sessions<CR>
+nnoremap <silent>[menu]r :Unite -silent menu:rest<CR>
 " }}}
 
 " bookmarks menu {{{
@@ -1498,11 +1671,68 @@ let g:unite_source_menu_menus.vim.command_candidates = [
         \'Unite -default-action=sigkill -start-insert process'],
     \['▷ launch executable (dmenu like)',
         \'Unite -start-insert launcher'],
-    \['▷ clear powerline cache',
-        \'PowerlineClearCache'],
     \]
 nnoremap <silent>[menu]v :Unite menu:vim -silent -start-insert<CR>
 " }}}
+
+" db menu {{{
+let g:unite_source_menu_menus.db = {
+    \ 'description' : '             database (SQL)
+        \                                        ⌘ [space]S',
+    \}
+let g:unite_source_menu_menus.db.command_candidates = [
+    \['▷ Execute SQL',
+        \'exe "DBExecSQL" " ".input("SQL?: ")'],
+    \['▷ Execute SQL (with limit of n rows)',
+        \'exe "DBExecSQL" " ".input("SQL?: ")'],
+    \['▷ SQL SELECT statement',
+        \'exe "Select" " ".input("SELECT ")'],
+    \['▷ SQL UPDATE statement',
+        \'exe "Update" " ".input("UPDATE")'],
+    \['▷ SQL INSERT statement',
+        \'exe "Insert" " ".input("INSERT")'],
+    \['▷ SQL DELETE statement',
+        \'exe "Delete" " ".input("DELETE")'],
+    \['▷ SQL CALL statement',
+        \'exe "Call" " ".input("CALL")'],
+    \['▷ SQL DROP statement',
+        \'exe "Drop" " ".input("DROP")'],
+    \['▷ SQL ALTER statement',
+        \'exe "Alter" " ".input("ALTER")'],
+    \['▷ SQL CREATE statement',
+        \'exe "Create" " ".input("CREATE")'],
+    \['▷ List all Tables                                            ⌘ ,Slt',
+        \'DBListTable'],
+    \['▷ List all Procedures                                        ⌘ ,Slp',
+        \'DBListProcedure'],
+    \['▷ List all Views                                             ⌘ ,Slv',
+        \'DBListView'],
+    \['▷ List all Variables                                         ⌘ ,Svr',
+        \'DBListVar'],
+    \['▷ DBext Get Options',
+        \'DBGetOption'],
+    \['▷ DBext Set Option',
+        \'exe "DBSetOption" " ".input("Option: ")'],
+    \['▷ DBext Set Var',
+        \'exe "DBSetVar" " ".input("Var: ")'],
+    \['▷ DBext Set Buffer Parameters',
+        \'DBPromptForBufferParameters'],
+    \['▷ List all Connections       (only DBI/ODBC)',
+        \'DBListConnections'],
+    \['▷ Commit                     (only DBI/ODBC)',
+        \'DBCommit'],
+    \['▷ Rollback                   (only DBI/ODBC)',
+        \'DBRollback'],
+    \['▷ Connect                    (only DBI/ODBC)',
+        \'DBConnect'],
+    \['▷ Disconnect                 (only DBI/ODBC)',
+        \'DBDisconnect'],
+    \]
+
+nnoremap <silent>[menu]S :Unite menu:db -silent -winheight=25 -start-insert<CR>
+
+" }}}
+
 " }}}
 
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
@@ -1538,9 +1768,6 @@ elseif executable('ack')
 endif
 
 let g:junkfile#directory=expand($HOME."/.vim/tmp/junk")
-
-" make this dir if no exists previously
-silent! call MakeDirIfNoExists(expand(unite_data_directory)."/session/")
 
 " }}}
 
@@ -1582,7 +1809,7 @@ let g:vimfiler_data_directory = $HOME.'/.vim/tmp/vimfiler'
 " map <LocalLeader>mr :Mer<CR>
 
 " let g:VMEPextensions = ['extra', 'codehilite']
-" let g:VMEPhtmlreader= '/usr/bin/chromium-browser'
+" let g:VMEPhtmlreader= '/usr/bin/chromium'
 
 " }}}
 
@@ -1600,6 +1827,16 @@ map <Leader>rl :VimuxRunLastCommand<CR>
 map <Leader>rs :VimuxInterruptRunner<CR>
 map <Leader>ri :VimuxInspectRunner<CR>
 map <Leader>rq :VimuxCloseRunner<CR>
+
+" }}}
+
+" Vinarise {{{
+
+map <F6> :Vinarise<CR>
+
+let g:vinarise_enable_auto_detect = 1
+
+au FileType vinarise let g:airline_section_warning = ''
 
 " }}}
 
@@ -1651,16 +1888,7 @@ au BufRead,BufNewFile */templates/*.html setlocal filetype=htmldjango.html
 
 " JSON {{{ -------------------------------------------------------------------
 
-" autocmd BufNewFile,BufRead *.json set ft=javascript
-autocmd BufNewFile,BufRead *.json set ft=json
-
 augroup json_autocmd
-  autocmd!
-  autocmd FileType json set autoindent
-  autocmd FileType json set formatoptions=tcq2l
-  autocmd FileType json set textwidth=78 shiftwidth=2
-  autocmd FileType json set softtabstop=2 tabstop=8
-  autocmd FileType json set expandtab
   autocmd FileType json set foldmethod=syntax
 augroup END
 
@@ -1672,12 +1900,30 @@ au BufRead,BufNewFile rc.lua setlocal foldmethod=marker
 
 " }}}
 
+" PYTHON {{{
+
+au FileType python setlocal foldlevel=1000
+
+" }}}
+
 " MARKDOWN {{{
 
 " markdown filetype file
 au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=markdown
 autocmd FileType markdown NeoBundleSource vim-markdown
 autocmd FileType markdown NeoBundleSource vim-markdown-extra-preview
+
+" }}}
+
+" RUBY {{{
+
+au FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
+
+" }}}
+
+" SQL {{{
+
+autocmd FileType sql DBCheckModeline
 
 " }}}
 
