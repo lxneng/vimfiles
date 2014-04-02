@@ -1870,12 +1870,6 @@ map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
 
 " }}}
 
-" UltiSnips {{{
-
-let g:UltiSnipsExpandTrigger="<c-l>"
-
-" }}}
-
 " END PLUGINS SETUP }}}
 
 " FILETYPES  {{{ ==============================================================
