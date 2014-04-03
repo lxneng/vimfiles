@@ -1040,20 +1040,21 @@ let g:neomru#directory_mru_path = $HOME.'/.vim/tmp/neomru/directory'
 
 " Po.vim {{{ -----------------------------------------------------------------
 
-let g:po_translator = "joe di castro <joe@joedicastro.com>"
+let g:po_translator = "Eric Lo <lxneng@gmail.com>"
 
 " }}}
 
 " PythonMode {{{ -------------------------------------------------------------
 
 nmap <silent><Leader>n :PymodeLint<CR>
+nmap <silent><Leader>pa :PymodeLintAuto<CR>
 
 let g:pymode_breakpoint_bind = '<Leader>B'
 
 let g:pymode_lint = 1
-let g:pymode_lint_on_write = 0
-let g:pymode_lint_checkers = ['pylint', 'pep8', 'mccabe', 'pep257']
-let g:pymode_lint_ignore = ''
+let g:pymode_lint_on_write = 1
+" let g:pymode_lint_checkers = ['pylint', 'pep8', 'mccabe']
+" let g:pymode_lint_ignore = ''
 let g:pymode_virtualenv = 0
 let g:pymode_rope = 1
 
