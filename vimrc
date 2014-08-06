@@ -163,7 +163,7 @@ NeoBundleLazy 'Yggdroot/indentLine', {'autoload': {'filetypes': ['python']}}
 " Show reports from coverage.py
 NeoBundleLazy 'alfredodeza/coveragepy.vim', {'autoload': {'filetypes': ['python']}}
 " Sort imports
- NeoBundle 'fisadev/vim-isort', {'autoload': {'filetypes': ['python']}}
+" NeoBundle 'fisadev/vim-isort', {'autoload': {'filetypes': ['python']}}
 " }}}
 
 " Code Snippets {{{
@@ -495,7 +495,7 @@ endif
 
 " Font {{{
 
-set guifont=DejaVu\ Sans\ Mono\ Bold\ for\ Powerline\ 12
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 12
 
 " }}}
 
