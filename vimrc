@@ -89,6 +89,9 @@ NeoBundleLazy 'Shougo/junkfile.vim', {'autoload':{'commands':'JunkfileOpen',
 " Unite plugin that provides command line completition
 NeoBundle 'majkinetor/unite-cmdmatch'
 
+" Unite plugin that provides spell suggestions
+NeoBundle 'kopischke/unite-spell-suggest'
+
 " }}}
 
 " Colorschemes {{{
@@ -595,9 +598,11 @@ nmap <Leader>so :setlocal nospell <CR>
 " jump to the next bad spell word
 nmap <Leader>sn ]s
 " suggest words
-nmap <Leader>sp z=
+" nmap <Leader>sp z=
+nmap <Leader>sp :Unite spell_suggest<CR>
 " jump to the next bad spell word and suggests a correct one
-nmap <Leader>sc ]sz=
+" nmap <Leader>sc ]sz=
+nmap <Leader>sc ]s :Unite spell_suggest<CR>
 " add word to the dictionary
 nmap <Leader>sa zg
 " }}}
@@ -1058,8 +1063,11 @@ let g:pymode_lint_on_write = 1
 let g:pymode_virtualenv = 0
 let g:pymode_rope = 1
 
-let g:pymode_rope_completion = 0
+let g:pymode_rope_completion = 1
 let g:pymode_rope_complete_on_dot = 1
+
+" Override go-to.definition key shortcut to Ctrl-]
+let g:pymode_rope_goto_definition_bind = "<C-]>"
 
 " }}}
 
