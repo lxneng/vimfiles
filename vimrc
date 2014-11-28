@@ -39,7 +39,7 @@ endif
 if has('vim_starting')
     set rtp+=$HOME/.vim/bundle/neobundle.vim/
 endif
-call neobundle#rc(expand($HOME.'/.vim/bundle/'))
+call neobundle#begin(expand($HOME.'/.vim/bundle/'))
 
 " is better if NeoBundle rules NeoBundle (needed!)
 NeoBundle 'Shougo/neobundle.vim'
@@ -157,8 +157,8 @@ NeoBundle 'Shougo/vinarise.vim'
 
 " Autocompletion
 " NeoBundle 'Valloric/YouCompleteMe', {'build': {'unix': './install.sh --clang-completer'}}
-" A Python plugin
-NeoBundleLazy 'klen/python-mode', {'autoload': {'filetypes': ['python']}}
+" PEP8 checker
+NeoBundleLazy 'nvie/vim-flake8', {'autoload': {'filetypes': ['python']}}
 " Admin virtualenvs
 NeoBundle 'jmcantrell/vim-virtualenv'
 " Show indent lines
@@ -307,6 +307,7 @@ NeoBundleLazy 'joedicastro/dbext.vim', { 'autoload' : { 'filetypes' : 'sql'}}
 " }}}
 
 " END BUNDLES }}}
+call neobundle#end()
 
 " Auto install the plugins {{{
 
@@ -1049,26 +1050,8 @@ let g:po_translator = "Eric Lo <lxneng@gmail.com>"
 
 " }}}
 
-" PythonMode {{{ -------------------------------------------------------------
-
-nmap <silent><Leader>n :PymodeLint<CR>
-nmap <silent><Leader>pa :PymodeLintAuto<CR>
-
-let g:pymode_breakpoint_bind = '<Leader>B'
-
-let g:pymode_lint = 1
-let g:pymode_lint_on_write = 1
-" let g:pymode_lint_checkers = ['pylint', 'pep8', 'mccabe']
-" let g:pymode_lint_ignore = ''
-let g:pymode_virtualenv = 0
-let g:pymode_rope = 1
-
-let g:pymode_rope_completion = 1
-let g:pymode_rope_complete_on_dot = 1
-
-" Override go-to.definition key shortcut to Ctrl-]
-let g:pymode_rope_goto_definition_bind = "<C-]>"
-
+" Flake8 {{{ -----------------------------------------------------------------
+autocmd BufWritePost *.py call Flake8()
 " }}}
 
 " Syntastic {{{
@@ -1444,14 +1427,6 @@ let g:unite_source_menu_menus.code = {
         \                                            ⌘ [space]p',
     \}
 let g:unite_source_menu_menus.code.command_candidates = [
-    \['▷ run python code                            (pymode)        ⌘ ,r',
-        \'PymodeRun'],
-    \['▷ show docs for the current word             (pymode)        ⌘ K',
-        \'normal K'],
-    \['▷ insert a breakpoint                        (pymode)        ⌘ ,B',
-        \'normal ,B'],
-    \['▷ pylint check                               (pymode)        ⌘ ,n',
-        \'PymodeLint'],
     \['▷ run with python2 in tmux panel             (vimux)         ⌘ ,rr',
         \'normal ,rr'],
     \['▷ run with python3 in tmux panel             (vimux)         ⌘ ,r3',
@@ -1472,28 +1447,6 @@ let g:unite_source_menu_menus.code.command_candidates = [
         \'VimuxCloseRunner'],
     \['▷ sort imports                               (isort)',
         \'Isort'],
-    \['▷ go to definition                           (pymode-rope)   ⌘ C-C g',
-        \'call pymode#rope#goto_definition()'],
-    \['▷ find where a function is used              (pymode-rope)   ⌘ C-C f',
-        \'call pymode#rope#find_it()'],
-    \['▷ show docs for current word                 (pymode-rope)   ⌘ C-C d',
-        \'call pymode#rope#show_doc()'],
-    \['▷ reorganize imports                         (pymode-rope)   ⌘ C-C r o',
-        \'call pymode#rope#organize_imports()'],
-    \['▷ refactorize - rename                       (pymode-rope)   ⌘ C-C r r',
-        \'call pymode#rope#rename()'],
-    \['▷ refactorize - inline                       (pymode-rope)   ⌘ C-C r i',
-        \'call pymode#rope#inline()'],
-    \['▷ refactorize - move                         (pymode-rope)   ⌘ C-C r v',
-        \'call pymode#rope#move()'],
-    \['▷ refactorize - use function                 (pymode-rope)   ⌘ C-C r u',
-        \'call pymode#rope#use_function()'],
-    \['▷ refactorize - change signature             (pymode-rope)   ⌘ C-C r s',
-        \'call pymode#rope#signature()'],
-    \['▷ refactorize - rename current module        (pymode-rope)   ⌘ C-C r 1 r',
-        \'PymodeRopeRenameModule'],
-    \['▷ refactorize - module to package            (pymode-rope)   ⌘ C-C r 1 p',
-        \'PymodeRopeModuleToPackage'],
     \['▷ syntastic toggle                           (syntastic)',
         \'SyntasticToggleMode'],
     \['▷ syntastic check & errors                   (syntastic)     ⌘ ,N',
