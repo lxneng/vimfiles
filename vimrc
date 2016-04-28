@@ -263,7 +263,9 @@ NeoBundle 'kchmck/vim-coffee-script',{'autoload' : {
 " GUI {{{
 
 " A better looking status line
-NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
+
 " Zooms a window
 NeoBundleLazy 'vim-scripts/zoomwintab.vim', {'autoload' :
             \{'commands' : 'ZoomWinTabToggle'}}
